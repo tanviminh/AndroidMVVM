@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="model"
             type="vimt.com.mvvmapp.model.ProfileModel" />
@@ -25,6 +27,7 @@
             android:id="@+id/age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{`` + model.age}" />
+            android:text="@{`` + model.age}"
+            android:visibility="@{model.isHide ? View.GONE : View.VISIBLE}" />
     </LinearLayout>
 </layout>

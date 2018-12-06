@@ -12,6 +12,7 @@ import vimt.com.mvvmapp.BR;
 public class ProfileModel extends BaseObservable {
     private String name;
     private int age;
+    private boolean isHide;
 
     @Bindable
     public String getName() {
@@ -34,5 +35,13 @@ public class ProfileModel extends BaseObservable {
         notifyPropertyChanged(BR.age);
     }
 
+    @Bindable
+    public boolean isHide() {
+        return isHide;
+    }
 
+    public void setHide(boolean hide) {
+        isHide = hide;
+        notifyPropertyChanged(BR.hide);
+    }
 }

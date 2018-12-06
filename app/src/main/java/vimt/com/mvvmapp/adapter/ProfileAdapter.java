@@ -29,6 +29,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import vimt.com.mvvmapp.App;
 import vimt.com.mvvmapp.R;
 import vimt.com.mvvmapp.databinding.RowProfileBinding;
 import vimt.com.mvvmapp.model.ProfileModel;
@@ -64,6 +65,10 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MyViewHo
 
                 //holder.binding.setModel(profileModel);
                 iCallBack.remove(profileModel);
+                App.getActivity().getSupportFragmentManager().beginTransaction()
+                        .add(R.id.container, ProfileFragment.newInstance(), ProfileFragment.class.getName())
+                        .addToBackStack(ProfileFragment.class.getName())
+                        .commitAllowingStateLoss();
 
             }
         });

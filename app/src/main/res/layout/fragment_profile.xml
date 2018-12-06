@@ -14,7 +14,7 @@
 
         <variable
             name="handler"
-            type="vimt.com.mvvmapp.view.ProfileFragment.Handlers" />
+            type="vimt.com.mvvmapp.databinding.Handlers" />
     </data>
 
     <LinearLayout
@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:greetings="@{model.myName}" />
+            app:welcome="@{model.myName}" />
 
 
         <android.support.v7.widget.RecyclerView

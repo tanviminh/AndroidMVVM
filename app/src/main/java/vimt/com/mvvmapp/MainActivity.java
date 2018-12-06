@@ -12,10 +12,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        App.setActivity(this);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, ProfileFragment.newInstance())
-                    .commitNow();
+            App.getActivity().getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, ProfileFragment.newInstance(), ProfileFragment.class.getName())
+                    .addToBackStack(ProfileFragment.class.getName())
+                    .commitAllowingStateLoss();
         }
     }
 }

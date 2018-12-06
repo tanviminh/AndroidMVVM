@@ -27,4 +27,8 @@ public class AppDataBindingComponent implements android.databinding.DataBindingC
         return new RecyclerViewDataBinding();
     }
 
+    @Override
+    public TextViewDataBinding getTextViewDataBinding() {
+        return new TextViewDataBinding();
+    }
 }

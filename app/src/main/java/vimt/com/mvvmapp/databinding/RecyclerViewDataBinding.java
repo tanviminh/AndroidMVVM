@@ -22,6 +22,7 @@
 package vimt.com.mvvmapp.databinding;
 
 import android.databinding.BindingAdapter;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
@@ -39,4 +40,5 @@ public class RecyclerViewDataBinding {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
     }
+
 }

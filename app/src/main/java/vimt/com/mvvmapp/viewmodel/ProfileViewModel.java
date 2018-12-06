@@ -19,6 +19,7 @@ import java.util.List;
 
 import vimt.com.mvvmapp.App;
 import vimt.com.mvvmapp.BR;
+import vimt.com.mvvmapp.R;
 import vimt.com.mvvmapp.adapter.ProfileAdapter;
 import vimt.com.mvvmapp.model.ProfileModel;
 import vimt.com.mvvmapp.view.ProfileFragment;
@@ -29,7 +30,6 @@ public class ProfileViewModel extends BaseViewModel {
     public ObservableList<ProfileModel> data;
     public ProfileAdapter adapter;
     public GridLayoutManager linearLayoutManager;
-    ProfileFragment.ICallBack iCallBack;
 
 
     public ProfileViewModel(ProfileFragment.ICallBack iCallBack) {
@@ -56,6 +56,9 @@ public class ProfileViewModel extends BaseViewModel {
             ProfileModel model = new ProfileModel();
             model.setName("Nguyen " + i);
             model.setAge(i);
+            if (i % 2 == 0) {
+                model.setHide(true);
+            }
             this.data.add(model);
         }
         //notifyPropertyChanged(BR.data);
@@ -71,6 +74,4 @@ public class ProfileViewModel extends BaseViewModel {
         this.adapter.notifyItemRemoved(index);
 
     }
-
-
 }

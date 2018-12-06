@@ -11,9 +11,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import vimt.com.mvvmapp.R;
 import vimt.com.mvvmapp.databinding.FragmentProfileBinding;
+import vimt.com.mvvmapp.databinding.Handlers;
 import vimt.com.mvvmapp.model.ProfileModel;
 import vimt.com.mvvmapp.ui.main.MainViewModel;
 import vimt.com.mvvmapp.viewmodel.ProfileViewModel;
@@ -21,10 +23,11 @@ import vimt.com.mvvmapp.viewmodel.ProfileViewModel;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends BaseFragment {
 
     ProfileViewModel viewModel;
     FragmentProfileBinding binding;
+
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -54,7 +57,7 @@ public class ProfileFragment extends Fragment {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_profile, container, false);
         binding.setModel(viewModel);
-        binding.setHandler(new Handlers());
+        binding.setHandler(createHandler());
         binding.setLifecycleOwner(this);
         initDefault();
         View view = binding.getRoot();
@@ -66,17 +69,64 @@ public class ProfileFragment extends Fragment {
 
     }
 
-    public class Handlers {
-        public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.submit:
-                    viewModel.myName.set("Vi Minh Tan");
-                    viewModel.myAge.set(25);
-                    viewModel.addData();
-                    break;
+
+    private Handlers createHandler() {
+        EditText editText = new EditText(getContext());
+        editText.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return false;
             }
-        }
+        });
+
+        Handlers handlers = new Handlers() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.submit:
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                viewModel.myName.set("Vi Minh Tan");
+                                viewModel.myAge.set(25);
+                            }
+                        }).start();
+
+                        viewModel.addData();
+                        break;
+                }
+            }
+
+            @Override
+            public  boolean onLongClick(View view){
+                //super.onLongClick(view);
+                return false;
+            }
+
+
+
+        };
+        return handlers;
     }
+
+
+//    public class Handlers {
+//        public void onClick(View view) {
+//            switch (view.getId()) {
+//                case R.id.submit:
+//                    new Thread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            viewModel.myName.set("Vi Minh Tan");
+//                            viewModel.myAge.set(25);
+//                        }
+//                    }).start();
+//
+//                    viewModel.addData();
+//                    break;
+//            }
+//        }
+//    }
 
     public interface ICallBack {
         void remove(ProfileModel profileModel);
