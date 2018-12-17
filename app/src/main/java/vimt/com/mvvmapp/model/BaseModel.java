@@ -1,17 +1,15 @@
-package vimt.com.mvvmapp.viewmodel;
+package vimt.com.mvvmapp.model;
 
 import android.arch.lifecycle.ViewModel;
-import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.Observable;
 import android.databinding.PropertyChangeRegistry;
 import android.support.annotation.NonNull;
-import android.view.View;
 
-public class BaseViewModel extends ViewModel implements Observable {
+public class BaseModel extends ViewModel implements Observable {
     private transient PropertyChangeRegistry mCallbacks;
 
-    public BaseViewModel() {
+    public BaseModel() {
     }
 
     @Override
@@ -62,4 +60,3 @@ public class BaseViewModel extends ViewModel implements Observable {
         mCallbacks.notifyCallbacks(this, fieldId, null);
     }
 }
-

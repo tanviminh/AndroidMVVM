@@ -9,7 +9,7 @@ import android.databinding.ObservableInt;
 
 import vimt.com.mvvmapp.BR;
 
-public class ProfileModel extends BaseObservable {
+public class ProfileModel extends BaseModel {
     private String name;
     private int age;
     private boolean isHide;

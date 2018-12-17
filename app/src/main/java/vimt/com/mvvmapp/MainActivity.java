@@ -1,9 +1,9 @@
 package vimt.com.mvvmapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import vimt.com.mvvmapp.ui.main.MainFragment;
 import vimt.com.mvvmapp.view.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,3 +21,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+ 

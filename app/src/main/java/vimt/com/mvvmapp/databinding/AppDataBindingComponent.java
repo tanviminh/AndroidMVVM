@@ -31,4 +31,14 @@ public class AppDataBindingComponent implements android.databinding.DataBindingC
     public TextViewDataBinding getTextViewDataBinding() {
         return new TextViewDataBinding();
     }
+
+    @Override
+    public TabLayoutDataBinding getTabLayoutDataBinding() {
+        return new TabLayoutDataBinding();
+    }
+
+    @Override
+    public ViewPagerDataBinding getViewPagerDataBinding() {
+        return new ViewPagerDataBinding();
+    }
 }

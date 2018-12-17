@@ -26,11 +26,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import java.util.List;
 
 import vimt.com.mvvmapp.App;
 import vimt.com.mvvmapp.R;
+import vimt.com.mvvmapp.databinding.Handlers;
 import vimt.com.mvvmapp.databinding.RowProfileBinding;
 import vimt.com.mvvmapp.model.ProfileModel;
 import vimt.com.mvvmapp.view.ProfileFragment;
@@ -65,10 +67,10 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MyViewHo
 
                 //holder.binding.setModel(profileModel);
                 iCallBack.remove(profileModel);
-                App.getActivity().getSupportFragmentManager().beginTransaction()
-                        .add(R.id.container, ProfileFragment.newInstance(), ProfileFragment.class.getName())
-                        .addToBackStack(ProfileFragment.class.getName())
-                        .commitAllowingStateLoss();
+//                App.getActivity().getSupportFragmentManager().beginTransaction()
+//                        .add(R.id.container, ProfileFragment.newInstance(), ProfileFragment.class.getName())
+//                        .addToBackStack(ProfileFragment.class.getName())
+//                        .commitAllowingStateLoss();
 
             }
         });

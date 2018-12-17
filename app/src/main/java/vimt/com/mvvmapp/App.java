@@ -24,6 +24,8 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         this.setContext(getApplicationContext());
+
+        //set static in func BindingAdapter if dont use it
         DataBindingUtil.setDefaultComponent(new AppDataBindingComponent());
     }
 

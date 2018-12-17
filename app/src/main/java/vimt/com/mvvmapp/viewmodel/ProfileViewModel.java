@@ -21,15 +21,24 @@ import vimt.com.mvvmapp.App;
 import vimt.com.mvvmapp.BR;
 import vimt.com.mvvmapp.R;
 import vimt.com.mvvmapp.adapter.ProfileAdapter;
+import vimt.com.mvvmapp.model.BaseModel;
 import vimt.com.mvvmapp.model.ProfileModel;
 import vimt.com.mvvmapp.view.ProfileFragment;
 
-public class ProfileViewModel extends BaseViewModel {
+public class ProfileViewModel extends BaseViewModel{
     public ObservableField<String> myName;
     public ObservableInt myAge;
     public ObservableList<ProfileModel> data;
     public ProfileAdapter adapter;
     public GridLayoutManager linearLayoutManager;
+
+//    public ProfileViewModel(){
+//        this.myAge = new ObservableInt();
+//        this.myName = new ObservableField<>();
+//        this.data = new ObservableArrayList<>();
+//        //this.adapter = new ProfileAdapter(this.data, iCallBack);
+//        this.linearLayoutManager = new GridLayoutManager(App.getContext(), 3);
+//    }
 
 
     public ProfileViewModel(ProfileFragment.ICallBack iCallBack) {
@@ -37,7 +46,7 @@ public class ProfileViewModel extends BaseViewModel {
         this.myName = new ObservableField<>();
         this.data = new ObservableArrayList<>();
         this.adapter = new ProfileAdapter(this.data, iCallBack);
-        this.linearLayoutManager = new GridLayoutManager(App.getContext(), 3);
+        this.linearLayoutManager = new GridLayoutManager(App.getContext(), 2);
     }
 
     @Bindable
